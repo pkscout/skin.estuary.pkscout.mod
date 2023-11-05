@@ -256,7 +256,7 @@
 		<value condition="Skin.HasSetting(bgd_show_50)">$LOCALIZE[31517]</value>
 		<value condition="Skin.HasSetting(bgd_show_40)">$LOCALIZE[31516]</value>
 		<value condition="Skin.HasSetting(bgd_show_30)">$LOCALIZE[31515]</value>
-		<value condition="Skin.HasSetting(bgd_show_20)">$LOCALIZE[31512]</value>
+		<value condition="Skin.HasSetting(bgd_show_20)">$LOCALIZE[31514]</value>
 		<value condition="Skin.HasSetting(bgd_show_10)">$LOCALIZE[31513]</value>
 		<value condition="Skin.HasSetting(bgd_show_0)">$LOCALIZE[16018]</value>
 		<value>$LOCALIZE[13278]</value>
