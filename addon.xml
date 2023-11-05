@@ -14,7 +14,7 @@
 		<res width="2160" height="1080" aspect="18:9" default="false" folder="xml" />
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<news>v.2.0.0
+		<news>v.21.0.0
 updated for Omega
 		</news>
 		<summary lang="en_GB">pkscout's mod to the Estuary skin by phil65.</summary>
