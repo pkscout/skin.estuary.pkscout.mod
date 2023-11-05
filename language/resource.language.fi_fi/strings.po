@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: translations@kodi.tv\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2022-11-13 12:16+0000\n"
+"PO-Revision-Date: 2023-09-30 05:27+0000\n"
 "Last-Translator: Oskari Lavinto <olavinto@protonmail.com>\n"
 "Language-Team: Finnish <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-estuary/fi_fi/>\n"
 "Language: fi_fi\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.0.2\n"
 
 msgctxt "Addon Summary"
 msgid "Estuary skin by phil65. (Kodi's default skin)"
@@ -171,7 +171,7 @@ msgstr "Oma arvio"
 
 msgctxt "#31034"
 msgid "Extended info"
-msgstr "Laajat tiedot"
+msgstr "ExtendedInfo"
 
 msgctxt "#31035"
 msgid "Pages"
@@ -199,7 +199,7 @@ msgstr "Kameran valmistaja"
 
 msgctxt "#31042"
 msgid "Playlist options"
-msgstr "Toistolistan valinnat"
+msgstr "Toistolistavalinnat"
 
 msgctxt "#31043"
 msgid "Set the type and add rules to create a smart playlist. These playlists are dynamic and include all media items from your database which apply to your chosen rules."
@@ -271,11 +271,11 @@ msgstr "Osiot"
 
 msgctxt "#31065"
 msgid "Video playlist"
-msgstr "Videoiden toistolista"
+msgstr "Videotoistolista"
 
 msgctxt "#31066"
 msgid "Music playlist"
-msgstr "Musiikin toistolista"
+msgstr "Musiikkitoistolista"
 
 msgctxt "#31067"
 msgid "Event log"
@@ -476,7 +476,7 @@ msgstr "Yleiset asetukset, jotka vaikuttavat ulkoasun eri osa-alueisiin."
 
 msgctxt "#31130"
 msgid "Main menu-related settings: Configure the home screen to your likings."
-msgstr "Päävalikon asetukset: mukauta kotinäyttö haluamaksesi."
+msgstr "Päävalikon asetukset: Tee aloitusnäytöstä haluamasi näköinen."
 
 msgctxt "#31131"
 msgid "Choose skin fanart pack"
@@ -667,17 +667,17 @@ msgstr "Videotoiston kuvaruutuvalikon automaattisulun viive (sekuntia)"
 #. Setting to control what happens when clicking a music album on the home screen
 msgctxt "#31174"
 msgid "Default select action for albums on the home screen"
-msgstr "Albumivalinnan oletustoiminto päävalikossa"
+msgstr "Albumivalinnan oletustoiminto aloitusnäytössä"
 
 #. Setting to control what happens when clicking a TV show on the home screen
 msgctxt "#31175"
 msgid "Default select action for TV shows on the home screen"
-msgstr "Sarjavalinnan oletustoiminto päävalikossa"
+msgstr "Sarjavalinnan oletustoiminto aloitusnäytössä"
 
 #. Setting to control what happens when clicking a movie set on the home screen
 msgctxt "#31176"
 msgid "Default select action for movie sets on the home screen"
-msgstr "Elokuvakokoelmavalinnan oletustoiminto päävalikossa"
+msgstr "Elokuvakokoelmavalinnan oletustoiminto aloitusnäytössä"
 
 # empty strings from id 31170 to 31599
 #. Label to show the video codec name
@@ -718,7 +718,7 @@ msgstr "Äänen bittinopeus"
 #. Label to show the screen resolution
 msgctxt "#31607"
 msgid "Screen resolution"
-msgstr "Näytön tarkkuus"
+msgstr "Näytön resoluutio"
 
 #. Label to show the system rendering speed
 msgctxt "#31608"
