@@ -428,7 +428,7 @@
 							<param name="widget_header" value="$LOCALIZE[136]"/>
 							<param name="widget_target" value="videos"/>
 							<param name="list_id" value="11200"/>
-							<param name="icon" value="DefaultPlaylist.png"/>
+							<param name="icon" value="$VAR[WidgetPlaylistIconVar]"/>
 						</include>
 						<include condition="Skin.HasSetting(show_video_addons)" content="WidgetListSquare">
 							<param name="content_path" value="addons://sources/video/"/>
