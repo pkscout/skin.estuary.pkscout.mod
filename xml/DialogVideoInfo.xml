@@ -616,6 +616,12 @@
 						<param name="visible" value="String.IsEqual(ListItem.DBType,musicvideo)" />
 					</include>
 					<include content="InfoDialogButton">
+						<param name="id" value="14" />
+						<param name="icon" value="icons/infodialogs/versions.png" />
+						<param name="label" value="$LOCALIZE[40000]" />
+						<param name="visible" value="String.IsEqual(ListItem.DBType,movie)" />
+					</include>
+					<include content="InfoDialogButton">
 						<param name="id" value="443" />
 						<param name="icon" value="icons/infodialogs/set.png" />
 						<param name="label" value="$LOCALIZE[20457]" />
