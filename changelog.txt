@@ -1,3 +1,6 @@
+v.21.0.2
+fix for music artists on home screen not running correct action
+
 v.21.0.1
 update of xbmc.gui version for compatability with Kodi 21b2 and later
 updates from Estuary in Kodi 21b2
