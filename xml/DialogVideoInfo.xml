@@ -154,6 +154,12 @@
 					<onright>140</onright>
 					<onleft>140</onleft>
 					<include content="InfoDialogMetadata">
+						<param name="control_id" value="146" />
+						<param name="label" value="[COLOR button_focus]$LOCALIZE[40003]: [/COLOR]$INFO[ListItem.VideoVersionName]" />
+						<param name="altlabel" value="$LOCALIZE[40003]: $INFO[ListItem.VideoVersionname]" />
+						<param name="visible" value="!String.IsEmpty(ListItem.VideoVersionName)" />
+					</include>
+					<include content="InfoDialogMetadata">
 						<param name="control_id" value="147" />
 						<param name="label" value="$INFO[ListItem.Director,[COLOR button_focus]$LOCALIZE[20339]: [/COLOR]]" />
 						<param name="altlabel" value="$INFO[ListItem.Director,$LOCALIZE[20339]: ]" />
@@ -418,14 +424,14 @@
 							</control>
 						</control>
 					</focusedlayout>
-					<itemlayout height="317" width="210" condition="Container.Content(Sets)">
+					<itemlayout height="319" width="205" condition="Container.Content(Sets)">
 						<control type="group">
-							<left>-10</left>
+							<left>0</left>
 							<top>10</top>
 							<control type="image">
 								<top>0</top>
-								<width>224</width>
-								<height>317</height>
+								<width>226</width>
+								<height>319</height>
 								<texture>DefaultMovies.png</texture>
 								<aspectratio aligny="center">scale</aspectratio>
 								<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
@@ -434,22 +440,23 @@
 							<control type="image">
 								<top>20</top>
 								<left>20</left>
-								<width>204</width>
-								<height>277</height>
+								<width>186</width>
+								<height>279</height>
 								<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-								<aspectratio aligny="center">keep</aspectratio>
+								<aspectratio aligny="center">scale</aspectratio>
 							</control>
 							<control type="image">
-								<left>30</left>
-								<width>184</width>
+								<left>20</left>
+								<width>186</width>
 								<height>180</height>
 								<bottom>10</bottom>
 								<texture>overlays/overlayfade.png</texture>
 								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+								<visible>String.IsEmpty(ListItem.Art(poster))</visible>
 							</control>
 							<control type="textbox">
-								<left>30</left>
-								<width>182</width>
+								<left>25</left>
+								<width>166</width>
 								<height>84</height>
 								<top>210</top>
 								<align>center</align>
@@ -460,14 +467,14 @@
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout height="317" width="210" condition="Container.Content(Sets)">
+					<focusedlayout height="319" width="205" condition="Container.Content(Sets)">
 						<control type="group">
-							<left>-10</left>
+							<left>0</left>
 							<top>10</top>
 							<control type="image">
 								<top>0</top>
-								<width>224</width>
-								<height>317</height>
+								<width>226</width>
+								<height>319</height>
 								<texture>DefaultMovies.png</texture>
 								<aspectratio aligny="center">scale</aspectratio>
 								<bordertexture border="21" infill="false">overlays/shadow.png</bordertexture>
@@ -476,22 +483,23 @@
 							<control type="image">
 								<top>20</top>
 								<left>20</left>
-								<width>204</width>
-								<height>277</height>
+								<width>186</width>
+								<height>279</height>
 								<texture background="true">$INFO[ListItem.Art(poster)]</texture>
-								<aspectratio aligny="center">keep</aspectratio>
+								<aspectratio aligny="center">scale</aspectratio>
 							</control>
 							<control type="image">
-								<left>30</left>
-								<width>184</width>
+								<left>20</left>
+								<width>186</width>
 								<height>180</height>
 								<bottom>10</bottom>
 								<texture>overlays/overlayfade.png</texture>
 								<animation effect="fade" start="100" end="80" time="0" condition="true">Conditional</animation>
+								<visible>String.IsEmpty(ListItem.Art(poster))</visible>
 							</control>
 							<control type="textbox">
-								<left>30</left>
-								<width>182</width>
+								<left>25</left>
+								<width>166</width>
 								<height>84</height>
 								<top>210</top>
 								<align>center</align>
@@ -501,10 +509,10 @@
 								<visible>String.IsEmpty(ListItem.Art(poster))</visible>
 							</control>
 							<control type="image">
-								<left>27</left>
+								<left>16</left>
 								<top>16</top>
-								<width>190</width>
-								<height>285</height>
+								<width>194</width>
+								<height>287</height>
 								<texture border="8" colordiffuse="button_focus">buttons/thumbnail_focused.png</texture>
 							</control>
 						</control>
@@ -622,6 +630,12 @@
 						<param name="visible" value="String.IsEqual(ListItem.DBType,movie)" />
 					</include>
 					<include content="InfoDialogButton">
+						<param name="id" value="15" />
+						<param name="icon" value="icons/infodialogs/extras.png" />
+						<param name="label" value="$LOCALIZE[40211]" />
+						<param name="visible" value="String.IsEqual(ListItem.DBType,movie)" />
+					</include>
+					<include content="InfoDialogButton">
 						<param name="id" value="443" />
 						<param name="icon" value="icons/infodialogs/set.png" />
 						<param name="label" value="$LOCALIZE[20457]" />
@@ -633,6 +647,7 @@
 						<param name="id" value="10" />
 						<param name="icon" value="icons/infodialogs/choose_image.png" />
 						<param name="label" value="$LOCALIZE[13511]" />
+						<param name="visible" value="Control.IsEnabled(10)" />
 					</include>
 					<include content="InfoDialogButton">
 						<param name="id" value="6" />

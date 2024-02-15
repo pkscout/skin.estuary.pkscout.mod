@@ -1,3 +1,6 @@
+v.21.0.3
+updates from Estuary in Kodi 21b3
+
 v.21.0.2
 fix for music artists on home screen not running correct action
 

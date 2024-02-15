@@ -7,7 +7,6 @@
 	<include file="Includes_MediaMenu.xml" />
 	<include file="Includes_Buttons.xml" />
 	<include file="Includes_DialogSelect.xml" />
-	<include file="Includes_DialogVideoVersion.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_PVR.xml" />
 	<include file="View_50_List.xml" />
@@ -268,7 +267,7 @@
 					<right>0</right>
 					<bottom>0</bottom>
 					<texture colordiffuse="button_focus">lists/focus.png</texture>
-					<visible>Control.HasFocus($PARAM[list_id])</visible>
+					<animation effect="fade" start="100" end="50" time="0">UnFocus</animation>
 				</control>
 				<control type="group">
 					<visible>ListItem.Property(PVR.IsRecordingTimer) | ListItem.Property(PVR.IsRemindingTimer)</visible>
@@ -436,7 +435,7 @@
 				<control type="group">
 					<width>115</width>
 					<visible>!String.IsEmpty($PARAM[infolabel_prefix]ListItem.Duration)</visible>
-					<visible>Container.Content(albums) | Window.IsActive(DialogMusicInfo.xml) + Container.Content(songs)</visible>
+					<visible>Container.Content(albums) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</visible>
 					<control type="label">
 						<width>110</width>
 						<height>60</height>
@@ -1692,5 +1691,79 @@
 				</control>
 			</control>
 		</focusedlayout>
+	</include>
+	<include name="MediaInfoListLayout">
+		<param name="height">125</param>
+		<param name="width">880</param>
+		<param name="fontcolor">grey</param>
+		<definition>
+			<itemlayout height="$PARAM[height]" width="$PARAM[width]">
+				<control type="image">
+					<left>12</left>
+					<top>7</top>
+					<width>110</width>
+					<height>110</height>
+					<texture>$VAR[VideoListThumbVar]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>0</top>
+					<right>20</right>
+					<height>60</height>
+					<font>font14</font>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<label>$VAR[MediaInfoListLabelVar]</label>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>50</top>
+					<right>20</right>
+					<height>65</height>
+					<font>font12</font>
+					<aligny>center</aligny>
+					<textcolor>grey</textcolor>
+					<label>$VAR[MediaInfoListLabel2Var]</label>
+				</control>
+			</itemlayout>
+			<focusedlayout height="$PARAM[height]" width="$PARAM[width]">
+				<control type="image">
+					<left>0</left>
+					<top>0</top>
+					<right>0</right>
+					<bottom>0</bottom>
+					<texture colordiffuse="button_focus">lists/focus.png</texture>
+					<animation effect="fade" start="100" end="50" time="0">UnFocus</animation>
+				</control>
+				<control type="image">
+					<left>12</left>
+					<top>7</top>
+					<width>110</width>
+					<height>110</height>
+					<texture>$VAR[VideoListThumbVar]</texture>
+					<aspectratio>keep</aspectratio>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>0</top>
+					<right>20</right>
+					<height>60</height>
+					<aligny>center</aligny>
+					<scroll>true</scroll>
+					<font>font14</font>
+					<label>$VAR[MediaInfoListLabelVar]</label>
+				</control>
+				<control type="label">
+					<left>135</left>
+					<top>50</top>
+					<right>20</right>
+					<height>65</height>
+					<font>font12</font>
+					<aligny>center</aligny>
+					<label>$VAR[MediaInfoListLabel2Var]</label>
+				</control>
+			</focusedlayout>
+		</definition>
 	</include>
 </includes>
