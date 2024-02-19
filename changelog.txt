@@ -1,3 +1,6 @@
+v.21.0.4
+moved artist bio on Music OSD setting to OSD area
+
 v.21.0.3
 updates from Estuary in Kodi 21b3
 
