@@ -1,3 +1,6 @@
+v.21.0.6
+updates from Estuary in Kodi 21.1
+
 v.21.0.5
 updates from Estuary in Kodi 21rc1
 
