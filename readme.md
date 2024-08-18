@@ -1,2 +1,2 @@
-# skin.estuary.nexus.pkscout.mod
+# skin.estuary.pkscout.mod
 Mod of Kodi Estuary skin for Kodi
