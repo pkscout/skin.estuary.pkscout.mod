@@ -668,6 +668,7 @@
 		<param name="show_timers" />
 		<param name="show_channelgroups" />
 		<param name="show_search" />
+		<param name="show_addedpvrchannels" />
 		<param name="show_nextrecordings" />
 		<param name="list_id" />
 		<definition>
@@ -715,14 +716,14 @@
 				<param name="widget_target" value="tvsearch"/>
 				<param name="list_id" value="$PARAM[list_id]"/>
 			</include>
-			<include content="WidgetListPVR" condition="$PARAM[show_addedpvrchannels">
+			<include content="WidgetListPVR" condition="$PARAM[show_addedpvrchannels]">
 				<param name="content_path" value="pvr://channels/tv/*?view=dateadded"/>
 				<param name="sortby" value="dateadded"/>
 				<param name="sortorder" value="descending"/>
 				<param name="widget_header" value="$LOCALIZE[855]"/>
 				<param name="widget_target" value="tvchannels"/>
+				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="item_limit" value="15"/>
-				<param name="list_id" value="12700"/>
 				<param name="info_update" value="5000"/>
 				<param name="label2" value="$INFO[ListItem.DateAdded]"/>
 			</include>
@@ -736,6 +737,7 @@
 		<param name="show_reordings" />
 		<param name="show_timers" />
 		<param name="show_channelgroups" />
+		<param name="show_addedradiochannels" />
 		<param name="show_search" />
 		<param name="list_id" />
 		<definition>
@@ -794,7 +796,7 @@
 				<param name="widget_header" value="$LOCALIZE[855]"/>
 				<param name="widget_target" value="radiochannels"/>
 				<param name="item_limit" value="15"/>
-				<param name="list_id" value="13700"/>
+				<param name="list_id" value="$PARAM[list_id]"/>
 				<param name="info_update" value="5000"/>
 				<param name="label2" value="$INFO[ListItem.DateAdded]"/>
 			</include>
@@ -924,11 +926,13 @@
 		<onload condition="!$EXP[HasTVSlot3]">Skin.SetBool(tvslot3_show_timers)</onload>
 		<onload condition="!$EXP[HasTVSlot4]">Skin.SetBool(tvslot4_show_channelgroup)</onload>
 		<onload condition="!$EXP[HasTVSlot5]">Skin.SetBool(tvslot5_show_search)</onload>
+		<onload condition="!$EXP[HasTVSlot6]">Skin.SetBool(tvslot6_show_recent)</onload>
 		<onload condition="!$EXP[HasRadioSlot1]">Skin.SetBool(radioslot1_show_channels)</onload>	
 		<onload condition="!$EXP[HasRadioSlot2]">Skin.SetBool(radioslot2_show_recordings)</onload>
 		<onload condition="!$EXP[HasRadioSlot3]">Skin.SetBool(radioslot3_show_timers)</onload>
 		<onload condition="!$EXP[HasRadioSlot4]">Skin.SetBool(radioslot4_show_channelgroup)</onload>
 		<onload condition="!$EXP[HasRadioSlot5]">Skin.SetBool(radioslot5_show_search)</onload>
+		<onload condition="!$EXP[HasRadioSlot6]">Skin.SetBool(radioslot6_show_recent)</onload>
 		<onload condition="!$EXP[HasAddonSlot1]">Skin.SetBool(addonslot1_show_video)</onload>	
 		<onload condition="!$EXP[HasAddonSlot2]">Skin.SetBool(addonslot2_show_music)</onload>	
 		<onload condition="!$EXP[HasAddonSlot3]">Skin.SetBool(addonslot3_show_none)</onload>	
@@ -936,6 +940,6 @@
 		<onload condition="!$EXP[HasAddonSlot5] + System.Platform.Android">Skin.SetBool(addonslot5_show_android)</onload>	
 		<onload condition="!$EXP[HasAddonSlot5] + !System.Platform.Android">Skin.SetBool(addonslot5_show_none)</onload>	
 		<onload condition="!$EXP[HasAddonSlot6]">Skin.SetBool(addonslot6_show_pictures)</onload>
-		<onload>Skin.SetString(skin_version,21.0.7)</onload>
+		<onload>Skin.SetString(skin_version,22.0.0)</onload>
 	</include>
 </includes>
