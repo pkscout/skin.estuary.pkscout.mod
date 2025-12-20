@@ -326,7 +326,7 @@
 		<control type="group">
 			<animation effect="slide" end="0,-200" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>
 			<animation effect="slide" start="0,-200" end="0,0" time="300" tween="cubic" easing="out">VisibleChange</animation>
-			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | !String.IsEmpty(PVR.ChannelNumberInput) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) + ![Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused]</visible>
+			<visible>Player.ShowInfo | Window.IsActive(fullscreeninfo) | Player.ShowTime | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(playerprocessinfo) | Window.IsActive(pvrosdchannels) | Window.IsActive(pvrchannelguide) + ![Player.Seeking | Player.HasPerformedSeek(3) | Player.Forwarding | Player.Rewinding | Player.Paused] | !String.IsEmpty(PVR.ChannelNumberInput)</visible>
 			<depth>DepthBars</depth>
 			<control type="image">
 				<left>0</left>
@@ -408,8 +408,14 @@
 						<shadowcolor>text_shadow</shadowcolor>
 						<height>100</height>
 						<width>auto</width>
-						<visible>!String.isempty(Player.Duration)</visible>
-						<visible>Player.HasVideo + ![Player.HasGame | VideoPlayer.HasEpg]</visible>
+						<visible>!Player.IsLive + Player.HasVideo + ![Player.HasGame | VideoPlayer.HasEpg] + !String.IsEmpty(Player.Duration)</visible>
+					</control>
+					<control type="label">
+						<label>$LOCALIZE[31081]</label>
+						<shadowcolor>text_shadow</shadowcolor>
+						<height>100</height>
+						<width>auto</width>
+						<visible>Player.IsLive</visible>
 					</control>
 					<control type="label">
 						<label>$INFO[PVR.EpgEventFinishTime,$LOCALIZE[31080]: ]</label>
