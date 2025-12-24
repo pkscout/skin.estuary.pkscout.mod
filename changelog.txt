@@ -1,3 +1,9 @@
+v.22.0.2
+version bump to fix repo
+
+v.22.0.1
+version bump to fix repo
+
 v.22.0.0
 updates from Estuary in Kodi 22 Alpha 2
 
