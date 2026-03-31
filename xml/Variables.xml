@@ -393,7 +393,7 @@
 		<value>$INFO[ListItem.Label]$INFO[ListItem.Year, ([COLOR grey],[/COLOR])]</value>
 	</variable>
 	<variable name="VideoInfoPlotVar">
-		<value condition="!String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Plot]</value>
+		<value condition="!String.IsEmpty(ListItem.Tagline) | !String.IsEmpty(ListItem.Plot)">$INFO[ListItem.Tagline,[B][I],[/I][/B][CR]]$INFO[ListItem.Plot]</value>
 		<value condition="String.IsEqual(ListItem.DBType,season)">$INFO[Container.ShowPlot]</value>
 	</variable>
 	<variable name="VideoInfoPlayButtonLabelVar">
