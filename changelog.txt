@@ -1,3 +1,6 @@
+v.21.0.9
+added option to hide episode ratings in wide list
+
 v.21.0.8
 updates from Estuary in Kodi 21.3
 
