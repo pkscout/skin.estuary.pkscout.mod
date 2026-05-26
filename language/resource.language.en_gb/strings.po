@@ -997,7 +997,12 @@ msgctxt "#31526"
 msgid "Choose how categories are displayed as well as which widgets show and in what order."
 msgstr ""
 
-#empty strings from id 31527 to 31596
+#: /xml/SkinSettings.xml
+msgctxt "#31527"
+msgid "Hide episode ratings in wide list"
+msgstr ""
+
+#empty strings from id 31528 to 31596
 
 #: /xml/Includes_SettingsDialog.xml
 #. Button to select Player Process Info window

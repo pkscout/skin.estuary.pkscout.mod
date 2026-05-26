@@ -67,7 +67,13 @@
 					<onclick>Skin.SelectBool(31024, 38018|circle_userrating, 563|circle_rating, 16018|circle_none)</onclick>
 					<label2>$VAR[RatingSettingLabel2Var]</label2>
 				</control>
-				<control type="button" id="707">
+				<control type="radiobutton" id="707">
+					<label>$LOCALIZE[31527]</label>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(hide_episode_rating)</onclick>
+					<selected>Skin.HasSetting(hide_episode_rating)</selected>
+				</control>
+				<control type="button" id="708">
 					<label>$LOCALIZE[31164]</label>
 					<include>DefaultSettingButton</include>
 					<onclick>Skin.SelectBool(31164, 31165|show_profilename, 31166|show_profileavatar, 16018|show_none)</onclick>
