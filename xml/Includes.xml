@@ -7,6 +7,7 @@
 	<include file="Includes_MediaMenu.xml" />
 	<include file="Includes_Buttons.xml" />
 	<include file="Includes_DialogSelect.xml" />
+	<include file="Includes_InfoViewer.xml" />
 	<include file="Includes_MusicInfo.xml" />
 	<include file="Includes_PVR.xml" />
 	<include file="Includes_SettingsDialog.xml" />
@@ -24,12 +25,10 @@
 	<include file="View_504_MediaList.xml" />
 	<include file="Variables.xml" />
 	<include file="VariablesMod.xml" />
-
 	<include condition="Integer.IsLessOrEqual(System.ScreenHeight,720)" file="Constants_720.xml" />
 	<include condition="Integer.IsGreater(System.ScreenHeight,720)" file="Constants_1080.xml" />
 	<expression name="infodialog_active">Window.IsActive(musicinformation) | Window.IsActive(songinformation) | Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(pictureinfo) | Window.IsVisible(script-embuary-video.xml) | Window.IsVisible(script-embuary-person.xml) | Window.IsVisible(script-embuary-image.xml)</expression>
 	<expression name="sidebar_visible">ControlGroup(9000).HasFocus | Control.HasFocus(6130) | Control.HasFocus(6131)</expression>
-	<expression name="object_audio_true">[String.IsEqual(ListItem.AudioCodec,eac3_ddp_atmos) | String.IsEqual(ListItem.AudioCodec,truehd_atmos) | String.IsEqual(ListItem.AudioCodec,dtshd_ma_x) | String.IsEqual(ListItem.AudioCodec,dtshd_ma_x_imax)] | [Window.IsActive(fullscreenvideo) + [String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos) | String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos) | String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x) | String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)]] | [Window.IsActive(visualisation) + [String.IsEqual(MusicPlayer.Codec,eac3_ddp_atmos) | String.IsEqual(MusicPlayer.Codec,truehd_atmos) | String.IsEqual(MusicPlayer.Codec,dtshd_ma_x) | String.IsEqual(MusicPlayer.Codec,dtshd_ma_x_imax)]]</expression>
 	<expression name="videoasset_true">Container.Content(videoassets) | Container.Content(videoversions) | Container.Content(videoextras)</expression>
 	<include name="CommonScrollbars">
 		<param name="bottom_offset">list_bottom_offset</param>
@@ -97,7 +96,7 @@
 		<font></font>
 	</include>
 	<include name="RatingCircle">
-		<param name="animation">False</param>
+		<param name="animation">false</param>
 		<definition>
 			<control type="group">
 				<animation effect="fade" time="0" condition="$PARAM[animation]">VisibleChange</animation>
@@ -377,7 +376,7 @@
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(ListItem.HdrType) + !Control.IsVisible(504)" />
-					<param name="flag_label" value="$VAR[VideoHDRTypeVar]" />
+					<param name="flag_label" value="$VAR[VideoHDRType1Var]$VAR[VideoHDRType2Var, &#8226; ]" />
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(ListItem.VideoAspect) + !Control.IsVisible(504)" />
@@ -385,15 +384,11 @@
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(ListItem.AudioCodec) + !Control.IsVisible(504)" />
-					<param name="flag_label" value="$VAR[AudioCodecVar]" />
-				</include>
-				<include content="MediaFlag">
-					<param name="flag_visible" value="$EXP[object_audio_true] + !Control.IsVisible(504)" />
-					<param name="flag_label" value="$VAR[ObjectAudioTypeVar]" />
+					<param name="flag_label" value="$VAR[AudioCodecFlagVar]" />
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(ListItem.AudioChannels) + !Control.IsVisible(504)" />
-					<param name="flag_label" value="$VAR[AudioChannelsVar]" />
+					<param name="flag_label" value="$VAR[AudioPropertyFlagVar]" />
 				</include>
 			</control>
 			<control type="grouplist">
@@ -428,15 +423,15 @@
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(VideoPlayer.AudioCodec)" />
-					<param name="flag_label" value="$VAR[AudioCodecVar]" />
-				</include>
-				<include content="MediaFlag">
-					<param name="flag_visible" value="$EXP[object_audio_true]" />
-					<param name="flag_label" value="$VAR[ObjectAudioTypeVar]" />
+					<param name="flag_label" value="$VAR[AudioCodecFlagVar]" />
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(VideoPlayer.AudioChannels)" />
-					<param name="flag_label" value="$VAR[AudioChannelsVar]" />
+					<param name="flag_label" value="$VAR[AudioPropertyFlagVar]" />
+				</include>
+				<include content="MediaFlag">
+					<param name="flag_visible" value="VideoPlayer.SubtitlesEnabled + [!String.IsEmpty(VideoPlayer.SubtitleCodec) | !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]" />
+					<param name="flag_label" value="$VAR[ActiveVideoPlayerSubtitleLanguage]" />
 				</include>
 			</control>
 			<control type="grouplist">
@@ -495,10 +490,6 @@
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(MusicPlayer.Codec)" />
 					<param name="flag_label" value="$VAR[AudioCodecVar]" />
-				</include>
-				<include content="MediaFlag">
-					<param name="flag_visible" value="$EXP[object_audio_true]" />
-					<param name="flag_label" value="$VAR[ObjectAudioTypeVar]" />
 				</include>
 				<include content="MediaFlag">
 					<param name="flag_visible" value="!String.IsEmpty(MusicPlayer.Channels)" />
@@ -1292,7 +1283,7 @@
 						<fadetime>400</fadetime>
 						<include>OpenClose_Left</include>
 						<animation effect="fade" time="400">VisibleChange</animation>
-						<texture background="true" colordiffuse="37FFFFFF">$VAR[PosterVar]</texture>
+						<texture background="true" colordiffuse="$VAR[BackgroundDiffusion]">$VAR[PosterVar]</texture>
 						<visible>!Control.IsVisible(32111)</visible>
 					</control>
 				</control>
@@ -1300,7 +1291,7 @@
 		</definition>
 	</include>
 	<include name="BottomBar">
-		<param name="info_visible">False</param>
+		<param name="info_visible">false</param>
 		<definition>
 			<control type="group">
 				<animation effect="slide" end="0,112" time="300" tween="sine" easing="inout" condition="$EXP[infodialog_active]">conditional</animation>

@@ -221,9 +221,25 @@ msgctxt "#31046"
 msgid "Delete group"
 msgstr "Kustuta grupp"
 
+msgctxt "#31047"
+msgid "Movie title format"
+msgstr ""
+
 msgctxt "#31048"
 msgid "Available"
 msgstr "Saadaval"
+
+msgctxt "#31049"
+msgid "Original title"
+msgstr ""
+
+msgctxt "#31050"
+msgid "Original title (Localised title)"
+msgstr ""
+
+msgctxt "#31051"
+msgid "Localised title (Original title)"
+msgstr ""
 
 msgctxt "#31052"
 msgid "filtered"
@@ -464,6 +480,10 @@ msgstr "Vaatamata sarjad"
 msgctxt "#31123"
 msgid "Same director"
 msgstr "Sama režissöör"
+
+msgctxt "#31124"
+msgid "Media Details"
+msgstr ""
 
 msgctxt "#31125"
 msgid "Press up for actor info"
@@ -775,6 +795,21 @@ msgstr "Süsteem"
 msgctxt "#31612"
 msgid "channels"
 msgstr "kanalid"
+
+#. Label to show the subtitle decoder name
+msgctxt "#31613"
+msgid "Subtitle decoder"
+msgstr ""
+
+#. Label to show the subtitle codec name
+msgctxt "#31614"
+msgid "Subtitle codec"
+msgstr ""
+
+#. Label to show the subtitle language
+msgctxt "#31615"
+msgid "Subtitle language"
+msgstr ""
 
 #~ msgctxt "#31025"
 #~ msgid "No favourites found. You can add any item from media views to this list by using the context menu."

@@ -3,6 +3,7 @@
 	<onload>SetFocus(5000,0,absolute)</onload>
 	<onload>SetProperty(infobackground,$ESCINFO[ListItem.Art(fanart)],home)</onload>
 	<onunload>ClearProperty(infobackground,home)</onunload>
+	<onunload>ClearProperty(InfoViewer_Visible,home)</onunload>
 	<controls>
 		<control type="button" id="6">
 			<include>HiddenObject</include>
@@ -153,7 +154,7 @@
 						<left>40</left>
 						<top>25</top>
 						<width>670</width>
-						<height>363</height>
+						<height>368</height>
 						<label fallback="19055">$VAR[VideoInfoPlotVar]</label>
 						<autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 						<visible>Integer.IsGreater(Container(4000).NumItems,0)</visible>
@@ -162,7 +163,7 @@
 						<left>40</left>
 						<top>25</top>
 						<width>1165</width>
-						<height>363</height>
+						<height>368</height>
 						<label fallback="19055">$VAR[VideoInfoPlotVar]</label>
 						<autoscroll delay="10000" time="5000" repeat="10000">Skin.HasSetting(AutoScroll)</autoscroll>
 						<visible>!Integer.IsGreater(Container(4000).NumItems,0)</visible>
@@ -654,6 +655,15 @@
 							<visible>!String.IsEmpty(ListItem.Trailer) + ![String.StartsWith(Container.FolderPath,plugin://) + String.Contains(Container.FolderPath,trailer)]</visible>
 						</item>
 						<item>
+							<label>$LOCALIZE[31124]</label>
+							<icon>icons/infodialogs/media_details.png</icon>
+							<onclick>SetProperty(InfoViewer_Visible,true,home)</onclick>
+							<onclick>SetProperty(InfoViewer_Header,$LOCALIZE[31124],home)</onclick>
+							<onclick>SetProperty(InfoViewer_Content,MediaDetails,home)</onclick>
+							<onclick>SetFocus(102)</onclick>
+							<visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,musicvideo) | String.IsEqual(ListItem.DBType,episode)</visible>
+						</item>
+						<item>
 							<label>$LOCALIZE[31003]</label>
 							<icon>icons/infodialogs/cinema.png</icon>
 							<onclick>Dialog.Close(MovieInformation)</onclick>
@@ -782,7 +792,7 @@
 			<control type="group">
 				<visible>Control.HasFocus(50) + !String.IsEqual(ListItem.DBType,set)</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<top>10</top>
+				<top>-10</top>
 				<left>0</left>
 				<control type="image">
 					<left>21</left>
@@ -802,7 +812,7 @@
 			<control type="group">
 				<visible>Control.HasFocus(138)</visible>
 				<animation effect="fade" time="200">VisibleChange</animation>
-				<top>10</top>
+				<top>-10</top>
 				<left>0</left>
 				<control type="image">
 					<top>4</top>
@@ -820,6 +830,7 @@
 				</control>
 			</control>
 		</control>
+		<include>InfoViewerLayout</include>
 		<include condition="Skin.HasSetting(touchmode)">TouchBackButton</include>
 	</controls>
 </window>

@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: KODI Main\n"
 "Report-Msgid-Bugs-To: https://github.com/xbmc/xbmc/issues/\n"
 "POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"PO-Revision-Date: 2025-01-25 03:19+0000\n"
+"PO-Revision-Date: 2026-05-14 12:20+0000\n"
 "Last-Translator: Heiko Berner <berner.h@gmail.com>\n"
 "Language-Team: Afrikaans (South Africa) <https://kodi.weblate.cloud/projects/kodi-add-ons-skins/skin-estuary/af_za/>\n"
 "Language: af_za\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9.2\n"
+"X-Generator: Weblate 5.17.1\n"
 
 msgctxt "Addon Summary"
 msgid "Estuary skin by phil65. (Kodi's default skin)"
@@ -221,9 +221,25 @@ msgctxt "#31046"
 msgid "Delete group"
 msgstr "Wis groep uit"
 
+msgctxt "#31047"
+msgid "Movie title format"
+msgstr "Fliek titel formaat"
+
 msgctxt "#31048"
 msgid "Available"
 msgstr "Beskikbaar"
+
+msgctxt "#31049"
+msgid "Original title"
+msgstr ""
+
+msgctxt "#31050"
+msgid "Original title (Localised title)"
+msgstr "Oorspronklike titel (Gelokaliseerde titel)"
+
+msgctxt "#31051"
+msgid "Localised title (Original title)"
+msgstr "Gelokaliseerde titel (Oorspronklike titel)"
 
 msgctxt "#31052"
 msgid "filtered"
@@ -464,6 +480,10 @@ msgstr "Ongekykte TV Vertonings"
 msgctxt "#31123"
 msgid "Same director"
 msgstr "Selfde direkteur"
+
+msgctxt "#31124"
+msgid "Media Details"
+msgstr ""
 
 msgctxt "#31125"
 msgid "Press up for actor info"
@@ -775,6 +795,21 @@ msgstr "Stelsel"
 msgctxt "#31612"
 msgid "channels"
 msgstr "kanale"
+
+#. Label to show the subtitle decoder name
+msgctxt "#31613"
+msgid "Subtitle decoder"
+msgstr ""
+
+#. Label to show the subtitle codec name
+msgctxt "#31614"
+msgid "Subtitle codec"
+msgstr ""
+
+#. Label to show the subtitle language
+msgctxt "#31615"
+msgid "Subtitle language"
+msgstr ""
 
 #~ msgctxt "#31025"
 #~ msgid "No favourites found. You can add any item from media views to this list by using the context menu."

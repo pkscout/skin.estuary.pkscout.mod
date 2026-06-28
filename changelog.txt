@@ -1,3 +1,6 @@
+v.22.0.5
+updates from Estuary in Kodi 22b1
+
 v.22.0.4
 added option to hide episode ratings in wide list
 
