@@ -1021,7 +1021,17 @@ msgctxt "#31527"
 msgid "Hide episode ratings in wide list"
 msgstr ""
 
-#empty strings from id 31528 to 31596
+#: /xml/DialogButtonMenu.xml
+msgctxt "#31528"
+msgid "Reboot from eMMC/NAND"
+msgstr ""
+
+#: /xml/DialogButtonMenu.xml
+msgctxt "#31529"
+msgid "Restart Kodi"
+msgstr ""
+
+#empty strings from id 31530 to 31596
 
 #: /xml/Includes_SettingsDialog.xml
 #. Button to select Player Process Info window
