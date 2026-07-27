@@ -1,3 +1,6 @@
+v.21.0.10
+added some shutdown menu options for CoreElec
+
 v.21.0.9
 added option to hide episode ratings in wide list
 
