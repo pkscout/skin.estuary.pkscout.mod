@@ -1,3 +1,6 @@
+v.22.0.7
+updates from Estuary in Kodi 22b2
+
 v.22.0.6
 added some shutdown menu options for CoreElec
 
