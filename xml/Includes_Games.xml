@@ -1015,6 +1015,20 @@
 		<value condition="String.IsEqual(ListItem.Property(achievement.raritycategory),$LOCALIZE[35293])">[COLOR selected]$INFO[ListItem.Property(achievement.raritycategory)][/COLOR]</value>
 		<value>$INFO[ListItem.Property(achievement.raritycategory),[COLOR FFE8B18B],[/COLOR]]</value>
 	</variable>
+	<variable name="GameAchievementTypeIconVar">
+		<value condition="!String.IsEmpty(ListItem.Property(achievement.win))">icons/achievements/win.png</value>
+		<value condition="!String.IsEmpty(ListItem.Property(achievement.progression))">icons/achievements/progression.png</value>
+	</variable>
+	<variable name="GameAchievementsProgressVar">
+		<value condition="!String.IsEmpty(Window.Property(Achievements.HasSets))">$INFO[Window.Property(Achievements.Progress)]$INFO[Window.Property(Achievements.Beaten),  [COLOR white]•[/COLOR]  ,]</value>
+		<value>$INFO[RetroPlayer.AchievementsProgress]$INFO[Window.Property(Achievements.Progress),  [COLOR white]•[/COLOR]  ,]$INFO[Window.Property(Achievements.Beaten),  [COLOR white]•[/COLOR]  ,]</value>
+	</variable>
+	<variable name="GameAchievementAttemptingLabelVar">
+		<value condition="!String.IsEmpty(ListItem.Property(achievement.attempting))">[COLOR white]$LOCALIZE[35718][/COLOR]</value>
+	</variable>
+	<variable name="GameAchievementMissableLabelVar">
+		<value condition="!String.IsEmpty(ListItem.Property(achievement.missable))">[COLOR red]$LOCALIZE[35710][/COLOR]</value>
+	</variable>
 	<include name="GameAchievementItem">
 		<param name="scroll" default="false" />
 		<definition>
@@ -1027,6 +1041,24 @@
 				<imagefilter>nearest</imagefilter>
 				<diffusefilter>nearest</diffusefilter>
 				<aspectratio>keep</aspectratio>
+			</control>
+			<control type="group">
+				<description>Marks what beating the game takes</description>
+				<left>72</left>
+				<top>72</top>
+				<width>34</width>
+				<height>34</height>
+				<visible>!String.IsEmpty(ListItem.Property(achievement.progression)) | !String.IsEmpty(ListItem.Property(achievement.win))</visible>
+				<control type="image">
+					<texture colordiffuse="dialog_tint">icons/achievements/emblem.png</texture>
+				</control>
+				<control type="image">
+					<left>7</left>
+					<top>7</top>
+					<width>20</width>
+					<height>20</height>
+					<texture>$VAR[GameAchievementTypeIconVar]</texture>
+				</control>
 			</control>
 			<control type="label">
 				<left>116</left>
@@ -1061,7 +1093,7 @@
 					<top>0</top>
 					<width>490</width>
 					<height>28</height>
-					<label>$INFO[ListItem.Property(achievement.points)]$VAR[GameAchievementRarityLabelVar,  [COLOR white]•[/COLOR]  ,]</label>
+					<label>$VAR[GameAchievementAttemptingLabelVar,,  [COLOR white]•[/COLOR]  ]$INFO[ListItem.Property(achievement.points)]$VAR[GameAchievementRarityLabelVar,  [COLOR white]•[/COLOR]  ,]$VAR[GameAchievementMissableLabelVar,  [COLOR white]•[/COLOR]  ,]</label>
 					<font>font12</font>
 					<textcolor>blue</textcolor>
 					<aligny>center</aligny>
@@ -1076,7 +1108,7 @@
 					<textcolor>grey</textcolor>
 					<aligny>center</aligny>
 					<align>right</align>
-					<visible>!String.IsEmpty(ListItem.Property(achievement.earned))</visible>
+					<visible>String.IsEmpty(ListItem.Property(achievement.measured))</visible>
 				</control>
 				<control type="label">
 					<left>494</left>
@@ -1123,9 +1155,9 @@
 			</control>
 		</definition>
 	</include>
-	<!-- The corner indicators shown over a running game: the achievement being
-	     attempted, how far along a measured one is, and the live value of a
-	     leaderboard attempt.
+	<!-- The corner indicators shown over a running game: the achievements being
+	     attempted, up to three of them, how far along a measured one is, and the
+	     live value of a leaderboard attempt.
 
 	     This has to stay a dialog: over a game with its own DRM plane the GUI
 	     layer is not composited unless one is up. -->
@@ -1144,9 +1176,19 @@
 			<align>right</align>
 
 			<include content="GameIndicator">
-				<param name="condition" value="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)" />
-				<param name="badge" value="RetroPlayer.AchievementsChallengeBadge" />
-				<param name="title" value="RetroPlayer.AchievementsChallengeTitle" />
+				<param name="condition" value="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(1))" />
+				<param name="badge" value="RetroPlayer.AchievementsChallengeBadge(1)" />
+				<param name="title" value="RetroPlayer.AchievementsChallengeTitle(1)" />
+			</include>
+			<include content="GameIndicator">
+				<param name="condition" value="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(2))" />
+				<param name="badge" value="RetroPlayer.AchievementsChallengeBadge(2)" />
+				<param name="title" value="RetroPlayer.AchievementsChallengeTitle(2)" />
+			</include>
+			<include content="GameIndicator">
+				<param name="condition" value="!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(3))" />
+				<param name="badge" value="RetroPlayer.AchievementsChallengeBadge(3)" />
+				<param name="title" value="RetroPlayer.AchievementsChallengeTitle(3)" />
 			</include>
 
 			<include content="GameIndicator">
@@ -1220,7 +1262,7 @@
 					<control type="label">
 						<left>40</left>
 						<top>83</top>
-						<width>680</width>
+						<width>480</width>
 						<height>45</height>
 						<label>$INFO[Window.Property(Achievements.GameTitle)]</label>
 						<font>font32</font>
@@ -1229,12 +1271,12 @@
 						<scroll>true</scroll>
 					</control>
 					<control type="label">
-						<left>740</left>
+						<left>540</left>
 						<top>83</top>
-						<width>410</width>
+						<width>610</width>
 						<height>45</height>
 						<align>right</align>
-						<label>$INFO[RetroPlayer.AchievementsProgress]$INFO[Window.Property(Achievements.Progress),  [COLOR white]•[/COLOR]  ,]</label>
+						<label>$VAR[GameAchievementsProgressVar]</label>
 						<font>font13</font>
 						<textcolor>blue</textcolor>
 						<aligny>center</aligny>
@@ -1244,6 +1286,7 @@
 						<top>140</top>
 						<width>1120</width>
 						<height>720</height>
+						<animation effect="fade" start="100" end="40" time="0" condition="String.IsEmpty(Window.Property(Achievements.SetEnabled))">Conditional</animation>
 						<onleft>108334</onleft>
 						<onright>108334</onright>
 						<onup>3</onup>
@@ -1290,6 +1333,26 @@
 						<onright>3</onright>
 						<onup>108334</onup>
 						<ondown>108334</ondown>
+						<control type="button" id="108345">
+							<width>380</width>
+							<include>SettingsItemCommon</include>
+							<font>font12</font>
+							<label>$LOCALIZE[35711]</label>
+							<label2>$INFO[Window.Property(Achievements.SetTitle)]</label2>
+							<visible>!String.IsEmpty(Window.Property(Achievements.HasSets))</visible>
+						</control>
+						<control type="radiobutton" id="108346">
+							<width>380</width>
+							<include>SettingsItemCommon</include>
+							<font>font12</font>
+							<label>$LOCALIZE[305]</label>
+							<radiowidth>112</radiowidth>
+							<radioheight>76</radioheight>
+							<radioposx>254</radioposx>
+							<radioposy>12</radioposy>
+							<selected>!String.IsEmpty(Window.Property(Achievements.SetEnabled))</selected>
+							<visible>!String.IsEmpty(Window.Property(Achievements.SetToggleable))</visible>
+						</control>
 						<control type="button" id="108333">
 							<width>380</width>
 							<include>SettingsItemCommon</include>
@@ -1305,6 +1368,17 @@
 							<font>font12</font>
 							<textcolor>button_focus</textcolor>
 							<label>$LOCALIZE[5]</label>
+						</control>
+						<control type="radiobutton" id="108340">
+							<width>380</width>
+							<include>SettingsItemCommon</include>
+							<font>font12</font>
+							<label>$LOCALIZE[35700]</label>
+							<radiowidth>112</radiowidth>
+							<radioheight>76</radioheight>
+							<radioposx>254</radioposx>
+							<radioposy>12</radioposy>
+							<selected>System.GetBool(gamesachievements.hardcore)</selected>
 						</control>
 						<control type="radiobutton" id="108331">
 							<width>380</width>
@@ -1328,6 +1402,20 @@
 							<radioposy>12</radioposy>
 							<selected>System.GetBool(gamesachievements.challengeindicator)</selected>
 						</control>
+						<control type="group" id="108341">
+							<height>400</height>
+							<visible>Control.HasFocus(108340)</visible>
+							<control type="textbox">
+								<left>20</left>
+								<top>30</top>
+								<width>340</width>
+								<height>370</height>
+								<font>font12</font>
+								<textcolor>grey</textcolor>
+								<label>$LOCALIZE[35302]</label>
+								<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
+							</control>
+						</control>
 						<control type="group" id="108337">
 							<height>400</height>
 							<visible>Control.HasFocus(108331)</visible>
@@ -1338,7 +1426,7 @@
 								<height>370</height>
 								<font>font12</font>
 								<textcolor>grey</textcolor>
-								<label>$LOCALIZE[35304]</label>
+								<label>$LOCALIZE[35304][CR][CR]$LOCALIZE[35719]</label>
 								<autoscroll time="3000" delay="5000" repeat="5000">true</autoscroll>
 							</control>
 						</control>
@@ -1455,6 +1543,7 @@
 				<texturesliderbackground colordiffuse="14FFFFFF">colors/white.png</texturesliderbackground>
 			</control>
 			<control type="label">
+				<visible>!RetroPlayer.AchievementsHardcore</visible>
 				<left>45</left>
 				<top>662</top>
 				<width>1090</width>
@@ -1467,6 +1556,7 @@
 				<wrapmultiline>true</wrapmultiline>
 			</control>
 			<control type="image">
+				<visible>!RetroPlayer.AchievementsHardcore</visible>
 				<left>45</left>
 				<top>647</top>
 				<width>1090</width>
@@ -1695,7 +1785,7 @@
 				<scroll>$PARAM[scroll]</scroll>
 			</control>
 			<control type="label">
-				<label>$INFO[ListItem.Property(TopUsername)]</label>
+				<label>$INFO[ListItem.Property(TopUsername),#1 ]</label>
 				<right>15</right>
 				<top>46</top>
 				<width>300</width>
@@ -1911,21 +2001,14 @@
 			<control type="image">
 				<left>10</left>
 				<top>134</top>
-				<width>1160</width>
+				<width>1200</width>
 				<height>740</height>
 				<texture border="40">buttons/dialogbutton-nofo.png</texture>
 			</control>
-			<control type="image">
-				<left>1160</left>
-				<top>154</top>
-				<width>1</width>
-				<height>700</height>
-				<texture colordiffuse="bg_overlay">colors/white.png</texture>
-			</control>
 			<control type="grouplist" id="1083901">
-				<left>30</left>
+				<left>29</left>
 				<top>154</top>
-				<width>1108</width>
+				<width>1160</width>
 				<height>700</height>
 				<pagecontrol>1083906</pagecontrol>
 				<onleft>1083908</onleft>
@@ -1939,26 +2022,24 @@
 			</control>
 			<control type="radiobutton" id="1083904">
 				<description>Default RadioButton</description>
-				<textwidth>912</textwidth>
+				<textwidth>964</textwidth>
 				<radioheight>70</radioheight>
 				<textureradioonnofocus colordiffuse="button_focus">buttons/radio-button-on.png</textureradioonnofocus>
 				<textureradioonfocus>buttons/radio-button-on.png</textureradioonfocus>
 				<include>DefaultSettingButton</include>
 			</control>
 			<control type="grouplist" id="1083908">
-				<left>1185</left>
+				<left>1210</left>
 				<top>144</top>
 				<orientation>vertical</orientation>
 				<usecontrolcoords>true</usecontrolcoords>
 				<width>300</width>
 				<height>710</height>
 				<itemgap>10</itemgap>
-				<onleft>1083906</onleft>
+				<onleft>1083901</onleft>
 				<onright>1083901</onright>
 				<include content="DefaultDialogButton">
 					<param name="id" value="1083907" />
-					<param name="left" value="-20" />
-					<param name="width" value="340" />
 					<param name="label" value="" />
 					<param name="font" value="font12" />
 					<param name="wrapmultiline" value="true" />
@@ -1974,8 +2055,6 @@
 				</control>
 				<include content="DefaultDialogButton">
 					<param name="id" value="1083905" />
-					<param name="left" value="-20" />
-					<param name="width" value="340" />
 					<param name="label" value="" />
 				</include>
 				<control type="textbox" id="1083902">
@@ -1987,7 +2066,7 @@
 				</control>
 			</control>
 			<control type="scrollbar" id="1083906">
-				<left>1138</left>
+				<left>1189</left>
 				<top>154</top>
 				<width>12</width>
 				<height>700</height>

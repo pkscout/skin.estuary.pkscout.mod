@@ -332,7 +332,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/year.png</texture>
+					<texture colordiffuse="button_focus">lists/year.png</texture>
 				</control>
 				<control type="label">
 					<visible>![String.IsEmpty(ListItem.Premiered) + String.IsEmpty(ListItem.Year)]</visible>
@@ -348,7 +348,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/duration.png</texture>
+					<texture colordiffuse="button_focus">lists/duration.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.Duration) + !Control.IsVisible(504)</visible>
@@ -364,7 +364,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center"></aspectratio>
-					<texture colordiffuse="white">lists/video.png</texture>
+					<texture colordiffuse="button_focus">lists/video.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.VideoCodec) + !Control.IsVisible(504)</visible>
@@ -380,7 +380,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/audio.png</texture>
+					<texture colordiffuse="button_focus">lists/audio.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.AudioCodec) + !Control.IsVisible(504)</visible>
@@ -396,7 +396,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/subtitles.png</texture>
+					<texture colordiffuse="button_focus">lists/subtitles.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.SubtitleLanguage)</visible>
@@ -423,7 +423,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/video.png</texture>
+					<texture colordiffuse="button_focus">lists/video.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(VideoPlayer.VideoCodec)</visible>
@@ -439,7 +439,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/audio.png</texture>
+					<texture colordiffuse="button_focus">lists/audio.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(VideoPlayer.AudioCodec)</visible>
@@ -455,7 +455,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/subtitles.png</texture>
+					<texture colordiffuse="button_focus">lists/subtitles.png</texture>
 				</control>
 				<control type="label">
 					<visible>VideoPlayer.SubtitlesEnabled + [!String.IsEmpty(VideoPlayer.SubtitleCodec) | !String.IsEmpty(VideoPlayer.SubtitlesLanguage)]</visible>
@@ -483,7 +483,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/duration.png</texture>
+					<texture colordiffuse="button_focus">lists/duration.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.Duration) + Container.Content(albums) + ![Window.IsVisible(songinformation) | Window.IsVisible(musicinformation)]</visible>
@@ -500,7 +500,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/audio.png</texture>
+					<texture colordiffuse="button_focus">lists/audio.png</texture>
 				</control>
 				<control type="label">
 					<visible>!String.IsEmpty(ListItem.FileExtension)</visible>
@@ -527,7 +527,7 @@
 					<width>32</width>
 					<height>32</height>
 					<aspectratio align="right" aligny="center">keep</aspectratio>
-					<texture colordiffuse="white">lists/audio.png</texture>
+					<texture colordiffuse="button_focus">lists/audio.png</texture>
 				</control>
 				<control type="label">
 					<left>-15</left>
